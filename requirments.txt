@@ -1,0 +1,7 @@
+gradio
+pandas
+torch
+langchain-text-splitters
+langchain-community
+sentence-transformers
+chromadb
