@@ -1,48 +1,158 @@
 # 📚 Semantic Book Recommendation System
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
-[![LangChain](https://img.shields.io/badge/%F0%9F%A6%9C%EF%B8%8F-LangChain-brightgreen)](https://github.com/langchain-ai/langchain)
-[![ChromaDB](https://img.shields.io/badge/Vector%20DB-ChromaDB-red)](https://github.com/chroma-core/chroma)
-[![Gradio](https://img.shields.io/badge/UI-Gradio-orange)](https://gradio.app/)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-Deployed-yellow)](https://huggingface.co/spaces)
+An AI-powered book recommendation engine that leverages semantic search, transformer embeddings, sentiment analysis, and vector similarity retrieval to deliver context-aware book recommendations beyond traditional keyword matching.
 
-An enterprise-ready, intelligent book recommendation system that leverages Large Language Models (LLMs), deep semantic search, and a persistent vector database to deliver highly context-aware book suggestions based on user intent, themes, and emotional resonance rather than just raw keyword or popularity matching.
+## 🚀 Project Overview
 
----
+Traditional recommendation systems rely heavily on keyword matching or collaborative filtering, which often fail to capture the true meaning behind user queries.
 
-## 🚀 Key Features
+This project addresses that limitation by using Natural Language Processing (NLP) and transformer-based embeddings to understand the semantic context of books and user preferences.
 
-* **True Semantic Search:** Moves beyond classic TF-IDF/BM25 keyword search to understand the deep contextual meaning of user queries using dense vector embeddings.
-* **Flexible Dual-Input System:** Users can input either a 13-digit standard **ISBN** for direct lookups or free-form text descriptions (e.g., *"a gripping historical fiction set in ancient Egypt"*).
-* **Persistent Vector Knowledge Base:** Powered by **ChromaDB**, allowing sub-millisecond similarity queries and persistent on-disk index reusability without cold-start re-embedding.
-* **Rich UI Frontend:** An interactive, accessible web interface built with **Gradio** featuring smooth visual layouts and dynamic book cover displays.
-* **Cloud Native:** Native structural support for headless deployment on **Hugging Face Spaces**.
+Users can search using natural language queries such as:
 
----
+> "Books similar to Harry Potter with dark magic themes"
 
-## 🛠️ System Architecture
+and receive recommendations based on meaning rather than exact keyword matches.
 
-The pipeline consists of three main stages: Document Chunking, Embedding Generation, and Fast Vector Similarity Retrieval.
+## ✨ Key Features
 
-```mermaid
-graph TD
-    A[books_with_emotions.csv] --> B[CharacterTextSplitter Chunking]
-    B --> C[all-MiniLM-L6-v2 Transformer]
-    C --> D[Dense Numerical Embeddings]
-    D --> E[Persistent ChromaDB Store]
-    F[User Query: Text / ISBN] --> G[all-MiniLM-L6-v2 Transformer]
-    G --> H[Query Vector]
-    H --> I[ChromaDB Vector Matching]
-    I --> J[Top Similar Book Matches]
-    J --> K[Gradio UI Gallery Output]
-├── my_book_recommender_db/     # Persisted ChromaDB vector index folders & files
-├── books_with_emotions.csv     # Raw dataset containing metadata & book text summaries
-├── app.py                      # Core application file containing UI logic & pipeline processing
-├── requirements.txt            # Explicit third-party library dependencies
-└── README.md                   # Complete system documentation
-git clone [https://github.com/spicynick111/Book-Recommendation-System-Semantic-Search.git](https://github.com/spicynick111/Book-Recommendation-System-Semantic-Search.git)
-cd Book-Recommendation-System-Semantic-Search
-python -m venv venv
-source venv/bin/activate  # On Windows use: .\venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
+* Semantic search using Sentence Transformers
+* Vector similarity retrieval with FAISS
+* Book sentiment analysis
+* Genre-aware recommendations
+* Interactive Gradio dashboard
+* Real-time recommendation generation
+* Content-based recommendation engine
+* Scalable embedding pipeline
+
+## 🏗️ System Architecture
+
+User Query
+↓
+Sentence Transformer Embedding
+↓
+FAISS Vector Database
+↓
+Similarity Search
+↓
+Ranking & Filtering
+↓
+Recommended Books
+
+## 🛠️ Tech Stack
+
+### Programming
+
+* Python
+
+### Machine Learning & NLP
+
+* Sentence Transformers
+* Hugging Face Transformers
+* Scikit-Learn
+* Pandas
+* NumPy
+
+### Vector Search
+
+* FAISS
+
+### Visualization & UI
+
+* Gradio
+* Matplotlib
+* Seaborn
+
+### Development Tools
+
+* Jupyter Notebook
+* Git
+* GitHub
+
+## 📂 Project Structure
+
+semantic_book_recommendation_system/
+│
+├── data/
+├── notebooks/
+├── src/
+├── models/
+├── app.py
+├── requirements.txt
+└── README.md
+
+## 📊 Dataset
+
+The project utilizes a curated collection of books containing:
+
+* Title
+* Author
+* Genre
+* Description
+* Rating
+* Reviews
+
+Text descriptions are transformed into dense vector embeddings to enable semantic retrieval.
+
+## 🔬 Methodology
+
+### Data Preprocessing
+
+* Missing value handling
+* Text cleaning
+* Feature extraction
+
+### Embedding Generation
+
+* Sentence Transformer encoding
+* Dense vector creation
+
+### Similarity Retrieval
+
+* FAISS indexing
+* Cosine similarity search
+
+### Recommendation Pipeline
+
+* Query embedding generation
+* Top-K retrieval
+* Ranking and recommendation
+
+## 📈 Results
+
+* Improved recommendation relevance compared to keyword-based search
+* Faster retrieval using vector indexing
+* Better handling of vocabulary mismatch problems
+* Context-aware recommendations
+
+## 💡 Example Query
+
+Input:
+"Fantasy books with magical schools and adventure"
+
+Output:
+
+* Harry Potter Series
+* The Name of the Wind
+* Percy Jackson
+* Eragon
+* The Magicians
+
+## 🔮 Future Enhancements
+
+* Hybrid recommendation system
+* User personalization
+* LLM-based recommendation explanations
+* Multi-language support
+* Cloud deployment
+
+## 👨‍💻 Author
+
+Aryan Kumar
+
+B.Tech CSE
+Birla Institute of Technology Mesra
+
+GitHub: https://github.com/spicynick111
+
+## ⭐ If you found this project useful, consider giving it a star.
