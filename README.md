@@ -1,158 +1,234 @@
 # 📚 Semantic Book Recommendation System
 
-An AI-powered book recommendation engine that leverages semantic search, transformer embeddings, sentiment analysis, and vector similarity retrieval to deliver context-aware book recommendations beyond traditional keyword matching.
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
+[![LangChain](https://img.shields.io/badge/LangChain-Framework-brightgreen)](https://github.com/langchain-ai/langchain)
+[![ChromaDB](https://img.shields.io/badge/Vector%20Database-ChromaDB-red)](https://github.com/chroma-core/chroma)
+[![Gradio](https://img.shields.io/badge/UI-Gradio-orange)](https://gradio.app/)
+[![Hugging Face](https://img.shields.io/badge/Deployment-HuggingFace%20Spaces-yellow)](https://huggingface.co/spaces)
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-HuggingFace%20Spaces-blue)](https://huggingface.co/spaces/spicynick01/semantic_book_recommender)
 
-## 🚀 Project Overview
+An AI-powered recommendation engine that combines semantic search, transformer embeddings, and vector retrieval to deliver context-aware book recommendations based on user intent rather than simple keyword matching.
 
-Traditional recommendation systems rely heavily on keyword matching or collaborative filtering, which often fail to capture the true meaning behind user queries.
+---
 
-This project addresses that limitation by using Natural Language Processing (NLP) and transformer-based embeddings to understand the semantic context of books and user preferences.
+## 🌐 Live Demo
 
-Users can search using natural language queries such as:
+🚀 **Try the application here:**
 
-> "Books similar to Harry Potter with dark magic themes"
+**https://huggingface.co/spaces/spicynick01/semantic_book_recommender**
 
-and receive recommendations based on meaning rather than exact keyword matches.
+The application is deployed on Hugging Face Spaces and can be accessed directly through a web browser without any local setup.
+
+---
+
+## 🚀 Overview
+
+Traditional recommendation systems often rely on keyword matching, popularity scores, or collaborative filtering, which can fail to understand the true intent behind a user's query.
+
+This project leverages transformer-based embeddings and vector similarity search to recommend books based on semantic meaning, themes, emotions, and contextual relationships.
+
+Example queries:
+
+* "Fantasy books with magical schools"
+* "Historical fiction set in ancient Egypt"
+* "Psychological thrillers with unexpected endings"
+
+Instead of matching keywords, the system retrieves books that are semantically similar to the user's intent.
+
+---
 
 ## ✨ Key Features
 
-* Semantic search using Sentence Transformers
-* Vector similarity retrieval with FAISS
-* Book sentiment analysis
-* Genre-aware recommendations
-* Interactive Gradio dashboard
-* Real-time recommendation generation
-* Content-based recommendation engine
-* Scalable embedding pipeline
+* 🔍 Semantic Search using transformer embeddings
+* 📚 ISBN-based and Natural Language Query Support
+* ⚡ Fast Vector Similarity Retrieval with ChromaDB
+* 🧠 Context-Aware Book Recommendations
+* 🎨 Interactive Gradio User Interface
+* 💾 Persistent Vector Database Storage
+* ☁️ Hugging Face Spaces Deployment Ready
+* 📈 Scalable Retrieval Pipeline
+
+---
 
 ## 🏗️ System Architecture
 
-User Query
-↓
-Sentence Transformer Embedding
-↓
-FAISS Vector Database
-↓
-Similarity Search
-↓
-Ranking & Filtering
-↓
-Recommended Books
+```mermaid
+graph TD
+    A[Books Dataset] --> B[Text Preprocessing]
+    B --> C[Document Chunking]
+    C --> D[Sentence Transformer]
+    D --> E[Dense Embeddings]
+    E --> F[ChromaDB Vector Store]
 
-## 🛠️ Tech Stack
+    G[User Query / ISBN]
+    G --> H[Embedding Generation]
+    H --> I[Similarity Search]
+    I --> F
+    F --> J[Top-K Retrieval]
+    J --> K[Book Recommendations]
+    K --> L[Gradio Interface]
+```
 
-### Programming
+---
+
+## 🛠️ Technology Stack
+
+### Programming Language
 
 * Python
 
-### Machine Learning & NLP
+### NLP & Embeddings
 
 * Sentence Transformers
 * Hugging Face Transformers
-* Scikit-Learn
+* LangChain
+
+### Vector Database
+
+* ChromaDB
+
+### Data Processing
+
 * Pandas
 * NumPy
+* Scikit-Learn
 
-### Vector Search
-
-* FAISS
-
-### Visualization & UI
+### Frontend
 
 * Gradio
-* Matplotlib
-* Seaborn
 
-### Development Tools
+### Deployment
 
-* Jupyter Notebook
+* Hugging Face Spaces
+
+### Version Control
+
 * Git
 * GitHub
 
+---
+
 ## 📂 Project Structure
 
+```bash
 semantic_book_recommendation_system/
 │
 ├── data/
+│   └── books_with_emotions.csv
+│
+├── chroma_db/
+│
 ├── notebooks/
+│
 ├── src/
-├── models/
+│
 ├── app.py
 ├── requirements.txt
-└── README.md
+├── README.md
+└── assets/
+```
 
-## 📊 Dataset
-
-The project utilizes a curated collection of books containing:
-
-* Title
-* Author
-* Genre
-* Description
-* Rating
-* Reviews
-
-Text descriptions are transformed into dense vector embeddings to enable semantic retrieval.
+---
 
 ## 🔬 Methodology
 
-### Data Preprocessing
+### 1. Data Preprocessing
 
-* Missing value handling
-* Text cleaning
-* Feature extraction
+* Text cleaning and normalization
+* Metadata extraction
+* Feature preparation
 
-### Embedding Generation
+### 2. Embedding Generation
 
-* Sentence Transformer encoding
-* Dense vector creation
+* Transformer-based sentence embeddings
+* Dense vector representation of book descriptions
 
-### Similarity Retrieval
+### 3. Vector Storage
 
-* FAISS indexing
-* Cosine similarity search
+* ChromaDB persistent vector database
+* Efficient indexing and retrieval
 
-### Recommendation Pipeline
+### 4. Semantic Retrieval
 
 * Query embedding generation
-* Top-K retrieval
-* Ranking and recommendation
+* Similarity matching
+* Top-K recommendation ranking
+
+---
+
+## 📊 Example Queries
+
+### Natural Language Search
+
+```text
+Fantasy books with magical schools
+```
+
+```text
+Historical fiction set in ancient Egypt
+```
+
+```text
+Psychological thrillers with unexpected endings
+```
+
+### ISBN Search
+
+```text
+9780439708180
+```
+
+---
 
 ## 📈 Results
 
-* Improved recommendation relevance compared to keyword-based search
-* Faster retrieval using vector indexing
-* Better handling of vocabulary mismatch problems
-* Context-aware recommendations
+* Improved recommendation relevance through semantic retrieval
+* Faster search performance using vector indexing
+* Better contextual understanding than traditional keyword search
+* Scalable and deployment-ready architecture
 
-## 💡 Example Query
-
-Input:
-"Fantasy books with magical schools and adventure"
-
-Output:
-
-* Harry Potter Series
-* The Name of the Wind
-* Percy Jackson
-* Eragon
-* The Magicians
+---
 
 ## 🔮 Future Enhancements
 
-* Hybrid recommendation system
-* User personalization
-* LLM-based recommendation explanations
+* Retrieval-Augmented Generation (RAG)
+* LLM-powered recommendation explanations
+* Personalized recommendation engine
+* User preference learning
 * Multi-language support
-* Cloud deployment
+* Cloud-scale vector search
 
-## 👨‍💻 Author
+---
 
-Aryan Kumar
+## ⚙️ Installation
 
-B.Tech CSE
-Birla Institute of Technology Mesra
+```bash
+git clone https://github.com/spicynick111/semantic_book_recommendation_system.git
 
-GitHub: https://github.com/spicynick111
+cd semantic_book_recommendation_system
 
-## ⭐ If you found this project useful, consider giving it a star.
+pip install -r requirements.txt
+
+python app.py
+```
+
+---
+
+## 🚀 Usage
+
+1. Launch the application.
+2. Enter a book ISBN or natural language query.
+3. Generate semantic recommendations.
+4. Explore similar books through the interactive interface.
+
+---
+
+## 📄 License
+
+This project is released under the MIT License.
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a star on GitHub.
