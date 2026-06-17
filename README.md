@@ -35,3 +35,14 @@ graph TD
     H --> I[ChromaDB Vector Matching]
     I --> J[Top Similar Book Matches]
     J --> K[Gradio UI Gallery Output]
+├── my_book_recommender_db/     # Persisted ChromaDB vector index folders & files
+├── books_with_emotions.csv     # Raw dataset containing metadata & book text summaries
+├── app.py                      # Core application file containing UI logic & pipeline processing
+├── requirements.txt            # Explicit third-party library dependencies
+└── README.md                   # Complete system documentation
+git clone [https://github.com/spicynick111/Book-Recommendation-System-Semantic-Search.git](https://github.com/spicynick111/Book-Recommendation-System-Semantic-Search.git)
+cd Book-Recommendation-System-Semantic-Search
+python -m venv venv
+source venv/bin/activate  # On Windows use: .\venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
